@@ -42,7 +42,7 @@ for i in range(len(mu_x)):
 '''
 
 for i in range(len(mu_x)):
-    for j in range(i + 1,len(mu_y) - 1):
+    for j in range(i + 1, len(mu_y) - 1):
         if (mu_x[i] / mu_y[j]) == (p_x/p_y) and (p_x * (i + 1) + p_y * (j + 1) == I):
             true_x, true_y = i + 1, j + 1
 
