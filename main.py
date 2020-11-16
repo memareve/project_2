@@ -18,10 +18,11 @@ pre_x, pre_y - выбранный пользователем набор потр
 
 mu_y = []
 k = 1
-I = int(input('Ваш бюджет: '))
 
+I = int(input('Ваш бюджет: '))
 p_x = int(input('Цена блага X: '))
 p_y = int(input('Цена блага Y: '))
+pre_x, pre_y = map(int, input('Преполагаемый оптимальный набор X кг и Y кг: ').split())
 
 print('Предельная полезность блага X (ввод в строку) в ютилях: ', end='')
 mu_x = map(int, input().split())
@@ -31,8 +32,6 @@ for i in range(len(mu_x)):
     print('Предельная полезность блага Y для ', k, ' кг в ютилях: ', sep='',end='')
     mu_y.append(int(input()))
     k += 1
-
-pre_x, pre_y = map(int, input('Преполагаемый оптимальный набор X кг и Y кг: ').split())
 
 '''
 Оптимальный объём потребления блага X и блага Y достигается тогда, 
@@ -45,6 +44,8 @@ for i in range(len(mu_x)):
     for j in range(i + 1,len(mu_y) - 1):
         if (mu_x[i] / mu_y[j]) == (p_x/p_y) and (p_x * (i + 1) + p_y * (j + 1) == I):
             true_x, true_y = i + 1, j + 1
+
+# проверка выбранного набора, вывод оптимального набора
 if true_x == pre_x and true_y == pre_y:
     print('Выбранный набор', pre_x, 'кг блага X и', pre_y, 'кг блага Y является оптимальным.')
 else:
